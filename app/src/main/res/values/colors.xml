@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#F44336</color>
+    <color name="primary_dark">#D32F2F</color>
+    <color name="primary_light">#FFCDD2</color>
+    <color name="accent">#7C4DFF</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#757575</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#BDBDBD</color>
+    <color name="lime">#AFB42B</color>
+    <color name="darkorange">#F57C00</color>
+    <color name="lightorange">#FF9800</color>
+    <color name="fancygreen">#4CAF50</color>
+    <color name="darkgreen">#388E3C</color>
+    <color name="lightblue">#1976D2</color>
+    <color name="lightblueshadow">#2196F3</color>
+    <color name="primaryorange">#FF5722</color>
+    <color name="primary_darkorange">#E64A19</color>
+    <color name="primary_lightO">#FFCCBC</color>
+    <color name="accentO">#FF5722</color>
+    <color name="amber">#FFA000</color>
+    <color name="primarygrey">#9E9E9E</color>
+    <color name="primary_darkGrey">#616161</color>
+    <color name="primary_lightGrey">#F5F5F5</color>
+    <color name="accentGrey">#FFC107</color>
+    <color name="global_color_primary_light">#f5f5f5</color>
+    <color name="global_color_green_primary">#4caf50</color>
+    <color name="global_color_green_primary_light">#c8e6c9</color>
+    <color name="global_color_green_primary_dark">#388e3c</color>
+    <color name="global_color_green_accent">#ffc107</color>
+    <color name="global_color_green_control_activated">#ffc107</color>
+</resources>
+
+
