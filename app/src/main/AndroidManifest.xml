@@ -2,13 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cab.alington.cab">
 
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".splashscreen.Splashscreen">
+        <activity android:name=".splashscreen.splash.Splashscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,8 +22,12 @@
         </activity>
         <activity
             android:name=".splashscreen.MainActivity"
-            android:label="@string/title_activity_main"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="@string/title_activity_main"/>
+        <activity android:name=".splashscreen.LoginActivity" />
+        <activity android:name=".splashscreen.Login"
+
+            android:windowSoftInputMode="adjustResize"></activity>
     </application>
 
 </manifest>

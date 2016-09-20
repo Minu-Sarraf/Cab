@@ -1,15 +1,271 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.cab.alington.cab.splashscreen.MainActivity"
-    tools:showIn="@layout/app_bar_main">
+   >
 
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/icons"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+
+            android:text="Location"
+            android:textColor="@color/primary_darkGrey"
+            android:textSize="14sp" />
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            app:cardUseCompatPadding="true"
+            app:cardBackgroundColor="@color/primary_lightGrey">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:padding="5dp"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/fromwrapper"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="60dp"
+                    android:layout_toRightOf="@+id/fromicon"
+                    android:background="@color/fade"
+                    android:gravity="center">
+
+                    <EditText
+                        android:id="@+id/form"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:hint="From"
+                        android:textSize="14sp"
+                        android:paddingLeft="5dp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <ImageView
+                    android:id="@+id/fromicon"
+                    style="@style/images"
+                    android:background="@drawable/ic_action_exit" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/wrapperto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/fromwrapper"
+                    android:layout_marginRight="60dp"
+                    android:layout_toRightOf="@+id/toicon"
+                    android:background="@color/fade"
+                    android:gravity="center">
+
+                    <EditText
+                        android:id="@+id/to"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:hint="To"
+                        android:textSize="14sp"
+                        android:paddingLeft="@dimen/activity_horizontal_margin" />
+                </android.support.design.widget.TextInputLayout>
+
+                <ImageView
+                    android:id="@+id/toicon"
+                    style="@style/images"
+                    android:layout_below="@+id/fromicon"
+                    android:layout_marginTop="35dp"
+                    android:background="@drawable/ic_action_exit"
+                    android:rotation="180" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+
+            android:text="Customer Info"
+            android:textColor="@color/primary_darkGrey"
+            android:textSize="14sp" />
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            app:cardUseCompatPadding="true"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/primary_lightGrey">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="@color/fade"
+                android:padding="5dp"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/userfromwrapper"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="60dp"
+                    android:layout_toRightOf="@+id/userfromicon"
+                    android:background="@color/fade"
+                    android:gravity="center">
+
+                    <EditText
+                        android:id="@+id/userform"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:hint="Customer Name"
+                        android:textSize="14sp"
+                        android:paddingLeft="5dp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <ImageView
+                    android:id="@+id/userfromicon"
+                    style="@style/images"
+                    android:background="@drawable/ic_action_user" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/userwrapperto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/phwrapper"
+                    android:layout_marginRight="60dp"
+                    android:layout_toRightOf="@+id/usericon"
+                    android:background="@color/primary_lightGrey"
+                    android:gravity="center">
+
+                    <EditText
+                        android:id="@+id/userto"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:hint="To"
+                        android:textSize="14sp"
+                        android:paddingLeft="@dimen/activity_horizontal_margin" />
+                </android.support.design.widget.TextInputLayout>
+
+                <ImageView
+                    android:id="@+id/usericon"
+                    style="@style/images"
+                    android:layout_below="@+id/phicon"
+                    android:layout_marginTop="35dp"
+                    android:backgroundTint="@color/primarygrey"
+                    android:background="@drawable/ic_action_mail" />
+                <ImageView
+                    android:id="@+id/phicon"
+                    style="@style/images"
+                    android:layout_below="@+id/userfromicon"
+                    android:backgroundTint="@color/primarygrey"
+                    android:background="@drawable/ic_contact_phone" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/phwrapper"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/userfromwrapper"
+                    android:layout_marginRight="60dp"
+                    android:layout_toRightOf="@+id/usericon"
+                    android:background="@color/primary_lightGrey"
+                    android:gravity="center">
+
+                    <EditText
+                        android:id="@+id/phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:hint="Phone No."
+                        android:textSize="14sp"
+                        android:inputType="number"
+                        android:paddingLeft="@dimen/activity_horizontal_margin" />
+                </android.support.design.widget.TextInputLayout>
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+
+            android:text="Other Info"
+            android:textColor="@color/primary_darkGrey"
+            android:textSize="14sp" />
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            app:cardUseCompatPadding="true"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/primary_lightGrey">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="@color/fade"
+                android:padding="5dp"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/timefromwrapper"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="60dp"
+                    android:layout_toRightOf="@+id/timefromicon"
+                    android:background="@color/fade"
+                    android:gravity="center">
+
+                    <EditText
+                        android:id="@+id/timeform"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:hint="Pick up DateTime"
+                        android:inputType="datetime"
+                        android:textSize="14sp"
+                        android:paddingLeft="5dp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <ImageView
+                    android:id="@+id/timefromicon"
+                    style="@style/images"
+                    android:background="@drawable/ic_action_calendar_day" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/timewrapperto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/timefromwrapper"
+                    android:layout_marginRight="60dp"
+                    android:layout_toRightOf="@+id/pickicon"
+                    android:background="@color/primary_lightGrey"
+                    android:gravity="center">
+
+                    <EditText
+                        android:id="@+id/timeto"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:hint="No.of Paasenger"
+                        android:textSize="14sp"
+                        android:inputType="number"
+                        android:paddingLeft="@dimen/activity_horizontal_margin" />
+                </android.support.design.widget.TextInputLayout>
+
+                <ImageView
+                    android:id="@+id/pickicon"
+                    style="@style/images"
+                    android:backgroundTint="@color/primarygrey"
+                    android:layout_below="@+id/timefromicon"
+                    android:layout_marginTop="35dp"
+                    android:background="@drawable/ic_confirmation_number" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/icons"
+            android:layout_gravity="bottom"></View>
+    </LinearLayout>
+
+</ScrollView>
