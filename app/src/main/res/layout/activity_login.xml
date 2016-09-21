@@ -1,0 +1,93 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.daimajia.slider.library.SliderLayout
+        android:id="@+id/slider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.00"
+        custom:auto_cycle="true"
+        custom:indicator_visibility="visible"
+        custom:pager_animation="Default"
+        custom:pager_animation_span="2000" />
+
+    <com.daimajia.slider.library.Indicators.PagerIndicator
+        android:id="@+id/custom_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="72dp"
+        android:gravity="center"
+        custom:selected_color="#555555"
+        custom:selected_height="8dp"
+        custom:selected_padding_left="3dp"
+        custom:selected_padding_right="3dp"
+        custom:selected_width="8dp"
+        custom:shape="oval"
+        custom:unselected_color="#55555555"
+        custom:unselected_height="4dp"
+        custom:unselected_padding_left="3dp"
+        custom:unselected_padding_right="3dp"
+        custom:unselected_width="4dp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:padding="10dp"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/driver"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20dp"
+
+            android:background="@drawable/rounded_edittext"
+            android:drawableLeft="@android:drawable/checkbox_off_background"
+            android:paddingLeft="10dp"
+            android:padding="10dp"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:text="I am Driver"
+            android:textColor="@color/icons"
+            android:textSize="13dp"
+            android:textAllCaps="false"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_weight="1" />
+        <View
+            android:layout_width="4dp"
+            android:layout_height="0dp" />
+
+
+
+
+    <Button
+        android:id="@+id/user"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/rounded_edittext"
+        android:drawableLeft="@android:drawable/checkbox_off_background"
+        android:paddingLeft="10dp"
+        android:padding="10dp"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:text="I am customer"
+        android:textColor="@color/icons"
+        android:textSize="13dp"
+        android:layout_width="0dp"
+        android:textAllCaps="false"
+        android:layout_height="42dp"
+        android:layout_weight="1"
+        android:layout_gravity="center_horizontal|bottom" />
+    </LinearLayout>
+
+</FrameLayout>
