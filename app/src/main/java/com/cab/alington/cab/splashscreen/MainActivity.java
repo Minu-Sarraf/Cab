@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity
         datetime.setOnTouchListener(this);
         tiphone = (TextInputLayout) findViewById(R.id.phwrapper);
         tiphone.setErrorEnabled(false);
-        fab = (FloatingActionButton) findViewById(R.id.fab);
+      /*  fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);

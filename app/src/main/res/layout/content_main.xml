@@ -1,40 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:background="@color/primary_lightGrey"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingTop="10dp">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
 
         android:clipToPadding="false"
         android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:background="@color/primary_lightGrey"
             android:orientation="vertical"
+            android:weightSum="1"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
 
-                android:text="Location"
-                android:textColor="@color/primary_darkGrey"
-                android:textSize="14sp" />
+            <!-- <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:padding="10dp"
 
+                 android:text="Location"
+                 android:textColor="@color/primary_darkGrey"
+                 android:textSize="14sp" />
+ -->
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:paddingTop="5dp"
-                app:cardBackgroundColor="@color/icons"
-                app:cardUseCompatPadding="true">
+                app:cardBackgroundColor="@color/icons">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -53,8 +59,9 @@
 
                         <EditText
                             android:id="@+id/form"
+                            android:textColor="@color/accent"
                             android:layout_width="match_parent"
-                            android:layout_height="45dp"
+                            android:layout_height="50dp"
                             android:layout_toLeftOf="@+id/map"
                             android:hint="From"
                             android:imeOptions="actionNext"
@@ -73,7 +80,7 @@
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="8dp"
                         android:background="@drawable/ic_place"
-                        android:backgroundTint="@color/accent"
+                        android:backgroundTint="@color/primary_darkGrey"
 
                         />
 
@@ -86,8 +93,8 @@
                         android:layout_alignParentRight="true"
                         android:layout_marginLeft="16dp"
                         android:background="@drawable/ic_action_location"
+                        android:backgroundTint="@color/primary_darkGrey"
                         android:paddingBottom="16dp"
-                        android:backgroundTint="@color/accent"
 
                         />
 
@@ -109,8 +116,9 @@
                         <EditText
                             android:id="@+id/to"
                             android:layout_width="match_parent"
-                            android:layout_height="45dp"
+                            android:layout_height="50dp"
                             android:hint="To"
+                            android:textColor="@color/accent"
                             android:imeOptions="actionNext"
                             android:paddingLeft="5dp"
                             android:textSize="14sp" />
@@ -120,31 +128,31 @@
                         android:id="@+id/toicon"
                         style="@style/images"
                         android:layout_below="@+id/fromicon"
-                        android:layout_marginTop="35dp"
                         android:background="@drawable/ic_action_exit"
-                        android:rotation="180" />
+                        android:rotation="180"
+                        android:layout_alignParentBottom="true" />
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
+            <!-- <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:padding="10dp"
 
-                android:text="Customer Info"
-                android:textColor="@color/primary_darkGrey"
-                android:textSize="14sp" />
-
+                 android:text="Customer Info"
+                 android:textColor="@color/primary_darkGrey"
+                 android:textSize="14sp" />
+ -->
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/icons"
-                app:cardUseCompatPadding="true">
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/icons">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/fade"
+                    android:background="@color/icons"
                     android:padding="5dp">
 
                     <android.support.design.widget.TextInputLayout
@@ -159,7 +167,7 @@
                         <EditText
                             android:id="@+id/userform"
                             android:layout_width="match_parent"
-                            android:layout_height="40dp"
+                            android:layout_height="50dp"
                             android:layout_toLeftOf="@+id/contact_picker"
                             android:hint="Customer Name"
                             android:imeOptions="actionNext"
@@ -182,9 +190,9 @@
                         android:layout_alignParentRight="true"
                         android:layout_alignParentTop="true"
                         android:layout_marginBottom="16dp"
-                        android:backgroundTint="@color/accent"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/ic_action_contact"
+                        android:backgroundTint="@color/primary_darkGrey"
 
                         />
 
@@ -201,7 +209,7 @@
                         <EditText
                             android:id="@+id/usermail"
                             android:layout_width="match_parent"
-                            android:layout_height="40dp"
+                            android:layout_height="50dp"
                             android:hint="Email"
                             android:imeOptions="actionNext"
                             android:paddingLeft="5dp"
@@ -211,9 +219,8 @@
                     <ImageView
                         android:id="@+id/usericon"
                         style="@style/images"
+                        android:layout_marginTop="35dp"
                         android:layout_below="@+id/userfromicon"
-                        android:layout_marginTop="30dp"
-
                         android:background="@drawable/ic_action_mail" />
 
 
@@ -235,7 +242,7 @@
                         <EditText
                             android:id="@+id/phone"
                             android:layout_width="match_parent"
-                            android:layout_height="40dp"
+                            android:layout_height="50dp"
                             android:hint="Phone No."
                             android:imeOptions="actionNext"
 
@@ -250,7 +257,7 @@
                         style="@style/images"
                         android:layout_alignStart="@+id/usericon"
                         android:layout_alignTop="@+id/phwrapper"
-                        android:layout_marginTop="20dp"
+
                         android:background="@drawable/ic_local_phone" />
                     <!-- <ImageButton
                          android:id="@+id/phone_picker"
@@ -266,21 +273,21 @@
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
+            <!-- <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:padding="10dp"
 
-                android:text="Other Info"
-                android:textColor="@color/primary_darkGrey"
-                android:textSize="14sp" />
+                 android:text="Other Info"
+                 android:textColor="@color/primary_darkGrey"
+                 android:textSize="14sp" />-->
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
 
-                app:cardBackgroundColor="@color/icons"
-                app:cardUseCompatPadding="true">
+                app:cardBackgroundColor="@color/icons">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -301,7 +308,7 @@
                         <EditText
                             android:id="@+id/timeform"
                             android:layout_width="match_parent"
-                            android:layout_height="45dp"
+                            android:layout_height="50dp"
                             android:hint="Pick up DateTime"
                             android:imeOptions="actionNext"
                             android:inputType="datetime"
@@ -313,7 +320,8 @@
                     <ImageView
                         android:id="@+id/timefromicon"
                         style="@style/images"
-                        android:background="@drawable/ic_action_calendar_day" />
+                        android:background="@drawable/ic_action_calendar_day"
+                        android:layout_alignParentTop="true" />
 
 
                     <ImageView
@@ -321,15 +329,16 @@
                         style="@style/images"
                         android:layout_below="@+id/timefromicon"
                         android:layout_marginLeft="8dp"
-                        android:layout_marginTop="30dp"
+
                         android:background="@drawable/ic_confirmation_number" />
 
                     <android.support.design.widget.TextInputLayout
                         android:id="@+id/pasenger"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="60dp"
                         android:layout_below="@+id/timefromwrapper"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="60dp"
                         android:layout_toRightOf="@+id/pickicon"
                         android:background="@color/icons"
                         android:gravity="center">
@@ -337,14 +346,14 @@
                         <EditText
                             android:id="@+id/timeto"
                             android:layout_width="match_parent"
-                            android:layout_height="45dp"
+                            android:layout_height="50dp"
                             android:layout_alignParentBottom="true"
                             android:layout_alignStart="@+id/timefromwrapper"
                             android:hint="No.of Paasenger"
 
                             android:imeOptions="actionNext"
                             android:inputType="number"
-                            android:paddingLeft="10dp"
+                            android:paddingLeft="5dp"
                             android:textSize="14sp" />
                     </android.support.design.widget.TextInputLayout>
 
@@ -357,7 +366,32 @@
                 android:layout_height="16dp"
                 android:layout_gravity="bottom"
                 android:background="@color/primary_lightGrey"></View>
-        </LinearLayout>
 
+        </LinearLayout>
     </ScrollView>
-</FrameLayout>
+
+    <!--<LinearLayout
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="bottom"
+        android:layout_weight="1"
+
+        android:orientation="vertical"></LinearLayout>-->
+
+    <com.dd.processbutton.iml.ActionProcessButton
+        android:id="@+id/btnSendFeedBack"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="NEXT"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        custom:pb_colorComplete="@color/green"
+        custom:pb_colorError="@color/red_error"
+        custom:pb_colorNormal="@color/primary"
+        custom:pb_colorPressed="@color/primary"
+        custom:pb_textComplete="Success"
+        custom:pb_textError="No field should be empty"
+        custom:pb_textProgress="Loading" />
+
+</LinearLayout>

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.transition.Fade;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
@@ -33,12 +34,17 @@ public class Splashscreen extends AppCompatActivity {
             public void run() {
                 Intent i = new Intent(Splashscreen.this, LoginActivity.class);
                 startActivity(i);
-                overridePendingTransition(R.anim.abc_slide_in_bottom, R.anim.abc_slide_out_top);
+                setupWindowAnimations();
+               // overridePendingTransition(R.anim.slide_out, R.anim.slide_in);
                 finish();
             }
         }, SPLASH_TIME_OUT);
     }
-
+    private void setupWindowAnimations() {
+        Fade fade = new Fade();
+        fade.setDuration(1000);
+        getWindow().setEnterTransition(fade);
+    }
     private void setAnimation() {
         ObjectAnimator scaleXAnimation = ObjectAnimator.ofFloat(findViewById(R.id.welcome_text), "scaleX", 5.0F, 1.0F);
         scaleXAnimation.setInterpolator(new AccelerateDecelerateInterpolator());

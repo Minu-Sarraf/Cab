@@ -4,11 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+
+
     >
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
     android:layout_height="match_parent">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -22,11 +24,13 @@
 
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
+
             android:layout_height="wrap_content"
             android:theme="@style/AppBarOverlay">
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
+                android:fitsSystemWindows="true"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="@color/primary"
@@ -39,7 +43,7 @@
 
     </LinearLayout>
 
-    <android.support.design.widget.FloatingActionButton
+    <!--<android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="55dp"
         android:layout_height="55dp"
@@ -54,7 +58,7 @@
         app:layout_anchorGravity="bottom|end|right"
         app:layout_behavior="com.cab.alington.cab.splashscreen.FAB_Float_on_Scroll" />
 
-
+-->
 </RelativeLayout>
 
     </android.support.design.widget.CoordinatorLayout>

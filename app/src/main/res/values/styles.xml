@@ -24,11 +24,11 @@
         <item name="android:layout_height">24dp</item>
         <item name="android:textColor">@color/secondary_text</item>
         <item name="android:textStyle">normal</item>
-        <item name="android:backgroundTint">@color/accent</item>
+        <item name="android:backgroundTint">@color/primary_darkGrey</item>
         <item name="android:fontFamily">sans-serif-condensed</item>
         <item name="android:layout_gravity">center_vertical</item>
         <item name="android:textSize">14sp</item>
-        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_marginTop">25dp</item>
         <item name="android:layout_marginLeft">4dp</item>
 
     </style>
