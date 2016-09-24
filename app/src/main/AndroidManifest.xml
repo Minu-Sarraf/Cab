@@ -23,30 +23,31 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity android:name=".splashscreen.splash.Splashscreen">
-           <!-- <intent-filter>
+
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
         <activity
             android:name=".splashscreen.MainActivity"
             android:label="@string/title_activity_main"
-            android:windowSoftInputMode="adjustResize"
-            android:theme="@style/AppTheme.NoActionBar" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity android:name=".splashscreen.MapsActivity"
-            >
+        <activity android:name=".splashscreen.MapsActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".splashscreen.MainActivity" />
         </activity>
-        />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value=" AIzaSyDyYdB91t26n-eEdqYWcbUPppM8aE7PLC0" />
@@ -54,8 +55,9 @@
         <activity android:name=".splashscreen.LoginActivity" />
         <activity
             android:name=".splashscreen.Login"
-
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize|adjustPan" />
+        <activity android:name=".splashscreen.Register"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 <resources>
     <style name="counterText">
         <item name="android:textColor">@color/green</item>
+
     </style>
 
     <style name="counterOverride">

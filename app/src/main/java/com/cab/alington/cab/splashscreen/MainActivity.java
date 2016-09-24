@@ -9,8 +9,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
+import android.text.Editable;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -22,25 +22,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.cab.alington.cab.R;
 import com.cab.alington.cab.splashscreen.datetime.CustomDateTimePicker;
-import com.daimajia.androidanimations.library.Techniques;
-import com.daimajia.androidanimations.library.YoYo;
 
 import java.util.Calendar;
 import java.util.Date;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener, View.OnTouchListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener, View.OnTouchListener {
     private static final int REQUEST_CODE = 100;
     FloatingActionButton fab;
     private ImageButton contact_pick;
-    EditText name, mob, email, datetime;
-    private TextInputLayout tiemail, tiphone;
+    EditText name, mob, email, datetime, toloc, fromloc, pass;
+    private TextInputLayout tiemail, tiphone, tiname, tito, tifrom, tidate, tipass;
     String num = "";
     String friend_contact_name, friend_contact_email;
     String hasNumber;
@@ -49,6 +48,7 @@ public class MainActivity extends AppCompatActivity
     private String contactId;
     private ImageView map1;
     private CustomDateTimePicker custom;
+    FrameLayout next;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,21 +56,28 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         contact_pick = (ImageButton) findViewById(R.id.contact_picker);
         map1 = (ImageView) findViewById(R.id.map);
         map1.setOnClickListener(this);
         // referbtn = (Button) findViewById(R.id.refer);
-        // btnSendFeedBack1.setOnClickListener(this);
         contact_pick.setOnClickListener(this);
         name = (EditText) findViewById(R.id.userform);
         email = (EditText) findViewById(R.id.usermail);
         mob = (EditText) findViewById(R.id.phone);
         datetime = (EditText) findViewById(R.id.timeform);
         tiemail = (TextInputLayout) findViewById(R.id.mailwrapper);
-        tiemail.setErrorEnabled(false);
+
         datetime.setOnTouchListener(this);
         tiphone = (TextInputLayout) findViewById(R.id.phwrapper);
-        tiphone.setErrorEnabled(false);
+        tifrom = (TextInputLayout) findViewById(R.id.fromwrapper);
+        tito = (TextInputLayout) findViewById(R.id.wrapperto);
+        tiname = (TextInputLayout) findViewById(R.id.userfromwrapper);
+        tiemail = (TextInputLayout) findViewById(R.id.mailwrapper);
+        tidate = (TextInputLayout) findViewById(R.id.datewrapper);
+        tipass = (TextInputLayout) findViewById(R.id.pasenger);
+        next = (FrameLayout) findViewById(R.id.next);
+        next.setOnClickListener(this);
       /*  fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,6 +87,7 @@ public class MainActivity extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });*/
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -113,14 +121,10 @@ public class MainActivity extends AppCompatActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
-
-
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -206,8 +210,8 @@ public class MainActivity extends AppCompatActivity
                                     friend_contact_name = numbers.getString(numbers.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
                                     //Toast.makeText(this, "Number=" + num, Toast.LENGTH_LONG).show();
                                     // Log.e("value", num);
-
                                     if (friend_contact_name != null) {
+                                        name.setText("");
                                         name.setText(friend_contact_name);
                                     }
                                     if (num != null) {
@@ -224,8 +228,6 @@ public class MainActivity extends AppCompatActivity
                                         } else {
                                             mob.setText(num);
                                         }
-
-
                                     }
                                     numbers.close();
                                 }
@@ -247,7 +249,13 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onClick(View v) {
+        Log.e("main", v.getId() + "");
         switch (v.getId()) {
+
+            case R.id.next:
+                getdetail();
+
+                break;
             case R.id.contact_picker:
                 boolean result = Permission.Utility.checkPermission(this, Manifest.permission.READ_CONTACTS, 123, "READ CONTACT permission is necessary");
                 if (result) {
@@ -255,15 +263,68 @@ public class MainActivity extends AppCompatActivity
                 }
                 break;
             case R.id.map:
-
                 Intent refermap = new Intent(this, MapsActivity.class);
-
                 startActivityForResult(refermap, 1);
-
                 overridePendingTransition(R.anim.abc_slide_in_bottom, R.anim.abc_slide_out_top);
-
                 break;
         }
+    }
+
+    private void validate(String gotname, String gotemail, Editable gotphone, String gotdate, String gotfrom, String gotto, String gotpass) {
+
+        if (!gotname.equalsIgnoreCase("") && Validation.isValidEmail(gotemail) && Validation.isValidPhoneNumber(gotphone) && !gotdate.equalsIgnoreCase("") && !gotfrom.equalsIgnoreCase("") && !gotto.equalsIgnoreCase("") && gotpass != "") {
+            Intent i = new Intent(this, Register.class);
+            startActivity(i);
+
+        } else if (gotname.equalsIgnoreCase("")) {
+            tiname.setError("Please enter name");
+        } else if (gotdate.equalsIgnoreCase("")) {
+            tidate.setError("Please enter valid date and time");
+        } else if (gotpass.equalsIgnoreCase("")) {
+            tipass.setError("Please enter passenger number");
+        } else if (gotto.equalsIgnoreCase("")) {
+            tito.setError("Please enter pickup location");
+        } else if (gotfrom.equalsIgnoreCase("")) {
+            tifrom.setError("Please enter dropping location");
+        } else if (!Validation.isValidEmail(gotemail)) {
+            tiemail.setError("Please enter valid email addresss");
+
+        } else if (!Validation.isValidPhoneNumber(gotphone)) {
+            tiphone.setError("Please enter valid phone number");
+        }
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        tiphone.setErrorEnabled(false);
+        tipass.setErrorEnabled(false);
+        tito.setErrorEnabled(false);
+        tifrom.setErrorEnabled(false);
+        tiemail.setErrorEnabled(false);
+        tidate.setErrorEnabled(false);
+        tipass.setErrorEnabled(false);
+        tiname.setErrorEnabled(false);
+    }
+
+    private boolean validatephone(Editable gotphone) {
+        return true;
+    }
+
+    private boolean validateemail(String gotemail) {
+        return true;
+    }
+
+    private void getdetail() {
+        String gotname = String.valueOf(name.getText());
+        String gotemail = String.valueOf(email.getText());
+        Editable gotphone = mob.getText();
+        String gotdate = String.valueOf(datetime.getText());
+        String gotfrom = String.valueOf(fromloc.getText());
+        String gotto = String.valueOf(toloc.getText());
+        String gotpass = String.valueOf(pass.getText());
+        validate(gotname, gotemail, gotphone, gotdate, gotfrom, gotto, gotpass);
     }
 
     public void getContact() {
@@ -276,7 +337,6 @@ public class MainActivity extends AppCompatActivity
     public boolean onTouch(View v, MotionEvent event) {
         if (v.getId() == R.id.timeform) {
             custom.showDialog();
-
         }
         return false;
     }
@@ -295,9 +355,9 @@ public class MainActivity extends AppCompatActivity
                                       String AM_PM) {
                         //                        ((TextInputEditText) findViewById(R.id.edtEventDateTime))
                         datetime.setText("");
-                        datetime.setText(monthShortName+" "
+                        datetime.setText(monthShortName + " "
                                 + calendarSelected.get(Calendar.DAY_OF_MONTH)
-                                + "," +year+ "    "+ hour12 + ":" + min
+                                + "," + year + "    " + hour12 + ":" + min
                                 + " " + AM_PM);
                     }
 

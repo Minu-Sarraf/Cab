@@ -79,7 +79,7 @@ public class MapsActivity extends FragmentActivity implements GoogleMap.OnMyLoca
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            AlertUtils.displaySnackBar(MapsActivity.this, "Poor Internet Connection!", R.color.primary);
+                            AlertUtils.displaySnackBar(MapsActivity.this, "Poor Internet Connection!", R.color.colorPrimary);
                         }
                     });
                 } else {

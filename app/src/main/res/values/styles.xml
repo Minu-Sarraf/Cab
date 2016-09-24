@@ -3,8 +3,8 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/primary</item>
-        <item name="android:colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/amber</item>
     </style>
 
@@ -14,8 +14,8 @@
         <item name="android:textColor">@color/global_color_primary_light</item>
     </style>
     <style name="ToolBarTheme" parent="Theme.AppCompat.NoActionBar">
-        <item name="colorPrimary">@color/primary</item>
-        <item name="android:colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
 
         <item name="popupTheme">@style/Theme.AppCompat.Light</item>
     </style>
@@ -30,6 +30,36 @@
         <item name="android:textSize">14sp</item>
         <item name="android:layout_marginTop">25dp</item>
         <item name="android:layout_marginLeft">4dp</item>
+
+    </style>
+
+    <style name="Textinput" >
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">match_parent</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:minHeight">60dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@color/icons</item>
+
+    </style>
+    <style name="edittext" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:imeOptions">actionNext</item>
+
+
+    </style>
+    <style name="detail" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:padding">6dp</item>
+        <item name="android:gravity">left</item>
+        <item name="android:textColor">@color/primarygrey</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.Small</item>
+
 
     </style>
     <style name="TextViewAppearance" parent="@android:style/TextAppearance.Widget.TextView">

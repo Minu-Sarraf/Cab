@@ -3,62 +3,58 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-
-
-    >
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:fitsSystemWindows="true"
     android:layout_height="match_parent">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        android:orientation="vertical"
-        tools:context="com.cab.alington.cab.splashscreen.MainActivity">
+        android:layout_height="match_parent">
 
-        <android.support.design.widget.AppBarLayout
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context="com.cab.alington.cab.splashscreen.MainActivity">
 
-            android:layout_height="wrap_content"
-            android:theme="@style/AppBarOverlay">
-
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:fitsSystemWindows="true"
+            <android.support.design.widget.AppBarLayout
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@color/primary"
-                android:titleTextColor="@color/white"
-                app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-        </android.support.design.widget.AppBarLayout>
+                android:layout_height="wrap_content"
+                android:theme="@style/AppBarOverlay">
 
-        <include layout="@layout/content_main" />
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    app:layout_collapseMode="pin"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/colorPrimary"
+                    android:titleTextColor="@color/white"
+                    app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-    </LinearLayout>
+            </android.support.design.widget.AppBarLayout>
 
-    <!--<android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@+id/timefromwrapper"
-        android:layout_margin="16dp"
+            <include layout="@layout/content_main" />
 
-        android:rotation="180"
-        android:src="@drawable/send"
-        app:backgroundTint="@color/primary"
-        app:layout_anchorGravity="bottom|end|right"
-        app:layout_behavior="com.cab.alington.cab.splashscreen.FAB_Float_on_Scroll" />
+        </LinearLayout>
 
--->
-</RelativeLayout>
+        <!--<android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/timefromwrapper"
+            android:layout_margin="16dp"
 
-    </android.support.design.widget.CoordinatorLayout>
+            android:rotation="180"
+            android:src="@drawable/send"
+            app:backgroundTint="@color/primary"
+            app:layout_anchorGravity="bottom|end|right"
+            app:layout_behavior="com.cab.alington.cab.splashscreen.FAB_Float_on_Scroll" />
+
+    -->
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

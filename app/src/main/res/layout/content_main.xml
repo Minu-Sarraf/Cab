@@ -4,28 +4,22 @@
     xmlns:custom="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    android:background="@color/primary_lightGrey"
+    android:background="@color/icons"
     android:orientation="vertical"
-    android:paddingTop="10dp">
+    android:paddingTop="6dp">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-
-        android:clipToPadding="false"
+        android:isScrollContainer="false"
         android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="match_parent"
             android:background="@color/primary_lightGrey"
-            android:orientation="vertical"
-            android:weightSum="1"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-
+            android:orientation="vertical">
             <!-- <TextView
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
@@ -39,34 +33,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:paddingTop="5dp"
                 app:cardBackgroundColor="@color/icons">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:background="@color/icons"
-                    android:padding="5dp">
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp">
+
 
                     <android.support.design.widget.TextInputLayout
                         android:id="@+id/fromwrapper"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="60dp"
-                        android:layout_toRightOf="@+id/fromicon"
-                        android:background="@color/icons"
-                        android:gravity="center">
-
+                        style="@style/Textinput"
+                        android:layout_marginTop="10dp">
                         <EditText
                             android:id="@+id/form"
-                            android:textColor="@color/accent"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
+                            style="@style/edittext"
                             android:layout_toLeftOf="@+id/map"
-                            android:hint="From"
-                            android:imeOptions="actionNext"
-                            android:paddingLeft="5dp"
-                            android:textSize="14sp" />
+                            android:hint="From" />
 
                     </android.support.design.widget.TextInputLayout>
 
@@ -80,9 +65,7 @@
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="8dp"
                         android:background="@drawable/ic_place"
-                        android:backgroundTint="@color/primary_darkGrey"
-
-                        />
+                        android:backgroundTint="@color/primary_darkGrey" />
 
                     <ImageButton
                         android:id="@+id/mapfrom"
@@ -98,39 +81,34 @@
 
                         />
 
-                    <ImageView
-                        android:id="@+id/fromicon"
-                        style="@style/images"
-                        android:background="@drawable/ic_action_exit" />
+                    <!--  <ImageView
+                          android:id="@+id/fromicon"
+                          style="@style/images"
+                          android:src="@drawable/ic_action_exit"
+                          android:tint="@color/primary_darkGrey" />-->
+
+                    <!-- <ImageView
+                         android:id="@+id/toicon"
+                         style="@style/images"
+                         android:layout_below="@+id/fromicon"
+                         android:layout_marginTop="35dp"
+                         android:background="@drawable/ic_action_exit"
+                         android:foregroundGravity="center"
+                         android:rotation="180" />-->
 
                     <android.support.design.widget.TextInputLayout
                         android:id="@+id/wrapperto"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/fromwrapper"
-                        android:layout_marginRight="60dp"
-                        android:layout_toRightOf="@+id/toicon"
-                        android:background="@color/icons"
-                        android:gravity="center">
+                        style="@style/Textinput"
+                        android:layout_below="@+id/fromwrapper">
 
                         <EditText
                             android:id="@+id/to"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
+                            style="@style/edittext"
                             android:hint="To"
-                            android:textColor="@color/accent"
-                            android:imeOptions="actionNext"
-                            android:paddingLeft="5dp"
-                            android:textSize="14sp" />
+                            />
                     </android.support.design.widget.TextInputLayout>
 
-                    <ImageView
-                        android:id="@+id/toicon"
-                        style="@style/images"
-                        android:layout_below="@+id/fromicon"
-                        android:background="@drawable/ic_action_exit"
-                        android:rotation="180"
-                        android:layout_alignParentBottom="true" />
+
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
 
@@ -151,36 +129,27 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:background="@color/icons"
                     android:padding="5dp">
 
                     <android.support.design.widget.TextInputLayout
                         android:id="@+id/userfromwrapper"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="60dp"
-                        android:layout_toRightOf="@+id/userfromicon"
-                        android:background="@color/icons"
-                        android:gravity="center">
+                        style="@style/Textinput">
 
                         <EditText
                             android:id="@+id/userform"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
+
                             android:layout_toLeftOf="@+id/contact_picker"
                             android:hint="Customer Name"
-                            android:imeOptions="actionNext"
-                            android:inputType="textCapWords|textCapSentences"
-                            android:paddingLeft="5dp"
-                            android:textSize="14sp" />
+                            style="@style/edittext" />
 
                     </android.support.design.widget.TextInputLayout>
 
-                    <ImageView
-                        android:id="@+id/userfromicon"
-                        style="@style/images"
-                        android:background="@drawable/ic_action_user" />
+                    <!--  <ImageView
+                          android:id="@+id/userfromicon"
+                          style="@style/images"
+                          android:background="@drawable/ic_action_user" />-->
 
                     <ImageButton
                         android:id="@+id/contact_picker"
@@ -192,73 +161,48 @@
                         android:layout_marginBottom="16dp"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/ic_action_contact"
-                        android:backgroundTint="@color/primary_darkGrey"
-
-                        />
+                        android:backgroundTint="@color/primary_darkGrey" />
 
                     <android.support.design.widget.TextInputLayout
                         android:id="@+id/mailwrapper"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/userfromwrapper"
-                        android:layout_marginRight="60dp"
-                        android:layout_toRightOf="@+id/usericon"
-                        android:background="@color/icons"
-                        android:gravity="center">
+                        style="@style/Textinput"
+                        android:layout_below="@+id/userfromwrapper">
 
                         <EditText
                             android:id="@+id/usermail"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
                             android:hint="Email"
-                            android:imeOptions="actionNext"
-                            android:paddingLeft="5dp"
-                            android:textSize="14sp" />
+                            style="@style/edittext"
+                            />
                     </android.support.design.widget.TextInputLayout>
 
-                    <ImageView
-                        android:id="@+id/usericon"
-                        style="@style/images"
-                        android:layout_marginTop="35dp"
-                        android:layout_below="@+id/userfromicon"
-                        android:background="@drawable/ic_action_mail" />
+                    <!--  <ImageView
+                          android:id="@+id/usericon"
+                          style="@style/images"
+                          android:layout_below="@+id/userfromicon"
+                          android:layout_marginTop="35dp"
+                          android:background="@drawable/ic_action_mail" />-->
 
 
                     <android.support.design.widget.TextInputLayout
                         android:id="@+id/phwrapper"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/mailwrapper"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="60dp"
-                        android:layout_toRightOf="@+id/phicon"
-                        android:background="@color/icons"
-                        android:gravity="center"
-                        app:counterEnabled="false"
-                        app:counterMaxLength="13"
-                        app:counterOverflowTextAppearance="@style/counterOverride"
-                        app:counterTextAppearance="@style/counterText">
+                        style="@style/Textinput"
+                        android:layout_below="@+id/mailwrapper">
 
                         <EditText
                             android:id="@+id/phone"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
                             android:hint="Phone No."
-                            android:imeOptions="actionNext"
-
-                            android:inputType="number"
-                            android:paddingLeft="5dp"
-                            android:textSize="14sp" />
+                            style="@style/edittext"
+                            android:inputType="number" />
 
                     </android.support.design.widget.TextInputLayout>
 
-                    <ImageView
-                        android:id="@+id/phicon"
-                        style="@style/images"
-                        android:layout_alignStart="@+id/usericon"
-                        android:layout_alignTop="@+id/phwrapper"
+                    <!--  <ImageView
+                          android:id="@+id/phicon"
+                          style="@style/images"
+                          android:layout_alignStart="@+id/usericon"
+                          android:layout_alignTop="@+id/phwrapper"
 
-                        android:background="@drawable/ic_local_phone" />
+                          android:background="@drawable/ic_local_phone" />-->
                     <!-- <ImageButton
                          android:id="@+id/phone_picker"
                          android:layout_width="34dp"
@@ -286,90 +230,90 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-
                 app:cardBackgroundColor="@color/icons">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:background="@color/icons"
-
-                    android:padding="5dp">
+                    android:layout_height="match_parent"
+                    android:background="@color/icons">
 
                     <android.support.design.widget.TextInputLayout
-                        android:id="@+id/timefromwrapper"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="16dp"
-                        android:layout_toRightOf="@+id/timefromicon"
-                        android:background="@color/icons"
-                        android:gravity="center">
+                        android:id="@+id/datewrapper"
+                        style="@style/Textinput">
 
                         <EditText
                             android:id="@+id/timeform"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
+                            style="@style/edittext"
                             android:hint="Pick up DateTime"
-                            android:imeOptions="actionNext"
-                            android:inputType="datetime"
-                            android:paddingLeft="5dp"
-                            android:textSize="14sp" />
+                           />
 
                     </android.support.design.widget.TextInputLayout>
 
-                    <ImageView
-                        android:id="@+id/timefromicon"
-                        style="@style/images"
-                        android:background="@drawable/ic_action_calendar_day"
-                        android:layout_alignParentTop="true" />
+                    <!--   <ImageView
+                           android:id="@+id/timefromicon"
+                           style="@style/images"
+                           android:layout_alignParentTop="true"
+                           android:layout_marginLeft="10dp"
+                           android:background="@drawable/ic_action_calendar_day"
+                           android:backgroundTint="@color/primary_darkGrey" />-->
 
-
-                    <ImageView
-                        android:id="@+id/pickicon"
-                        style="@style/images"
-                        android:layout_below="@+id/timefromicon"
-                        android:layout_marginLeft="8dp"
-
-                        android:background="@drawable/ic_confirmation_number" />
-
+                    <!--   <ImageView
+                           android:id="@+id/pickicon"
+                           style="@style/images"
+                           android:layout_below="@+id/timefromicon"
+                           android:layout_marginLeft="16dp"
+                           android:layout_marginTop="30dp"
+                           android:background="@drawable/ic_confirmation_number"
+                           android:backgroundTint="@color/secondary_text" />
+   -->
                     <android.support.design.widget.TextInputLayout
                         android:id="@+id/pasenger"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/timefromwrapper"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="60dp"
-                        android:layout_toRightOf="@+id/pickicon"
-                        android:background="@color/icons"
-                        android:gravity="center">
+
+                        style="@style/Textinput"
+                        android:layout_below="@+id/datewrapper">
 
                         <EditText
                             android:id="@+id/timeto"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:layout_alignParentBottom="true"
-                            android:layout_alignStart="@+id/timefromwrapper"
-                            android:hint="No.of Paasenger"
-
-                            android:imeOptions="actionNext"
-                            android:inputType="number"
-                            android:paddingLeft="5dp"
-                            android:textSize="14sp" />
+                            style="@style/edittext"
+                            android:hint="No.of Paasenger" />
                     </android.support.design.widget.TextInputLayout>
 
 
                 </RelativeLayout>
+
+
             </android.support.v7.widget.CardView>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="16dp"
-                android:layout_gravity="bottom"
-                android:background="@color/primary_lightGrey"></View>
 
         </LinearLayout>
+
     </ScrollView>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:orientation="horizontal">
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary" />
+
+        <FrameLayout
+            android:id="@+id/next"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary">
+
+            <ImageView
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_chevron_right_white" />
+        </FrameLayout>
+
+    </LinearLayout>
     <!--<LinearLayout
         android:id="@+id/button"
         android:layout_width="match_parent"
@@ -378,20 +322,5 @@
         android:layout_weight="1"
 
         android:orientation="vertical"></LinearLayout>-->
-
-    <com.dd.processbutton.iml.ActionProcessButton
-        android:id="@+id/btnSendFeedBack"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:text="NEXT"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        custom:pb_colorComplete="@color/green"
-        custom:pb_colorError="@color/red_error"
-        custom:pb_colorNormal="@color/primary"
-        custom:pb_colorPressed="@color/primary"
-        custom:pb_textComplete="Success"
-        custom:pb_textError="No field should be empty"
-        custom:pb_textProgress="Loading" />
 
 </LinearLayout>
