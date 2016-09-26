@@ -1,81 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/icons"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.cab.alington.cab.splashscreen.Register"
+    android:background="@color/cardview_light_background"
     android:orientation="vertical">
-    <Toolbar
+    <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_height="128dp"
-        android:title="Payment"
         android:layout_width="match_parent"
-        android:minHeight="?android:attr/actionBarSize"
+        android:layout_height="?android:attr/actionBarSize"
         android:background="@color/colorPrimary"
-        android:gravity="bottom" />
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardUseCompatPadding="true"
-        android:layout_margin="6dp"
-        android:elevation="1dp"
-        app:cardBackgroundColor="@color/cardview_light_background"
-        app:contentPadding="16dp">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-    <android.support.v7.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:cardUseCompatPadding="true"
-        android:layout_gravity="center_horizontal"
-        app:cardElevation="3dp"
+        android:title="Payment"
+        android:titleTextColor="@color/icons" />
 
-        app:theme="@style/Base.TextAppearance.AppCompat.Headline"
-        app:cardCornerRadius="3dp"
-        app:cardBackgroundColor="@color/fade"
-        app:contentPadding="6dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="@android:style/TextAppearance.Large"
-            android:layout_gravity="center_horizontal"
-            android:text="price $$$"
-            android:gravity="center_horizontal"
-            android:textSize="25dp"
-            android:textColor="@color/primary_text"
-            android:id="@+id/price"
-            />
-        </android.support.v7.widget.CardView>
-            <TextView
-                style="@style/detail"
-                android:text="Date:"
-                android:id="@+id/date"
-                />
-        <TextView
-          style="@style/detail"
-            android:text="Location: "
-            android:id="@+id/address"
-            />
-
-            <TextView
-                style="@style/detail"
-                android:text="No.of passenger"
-                android:id="@+id/passenger"
-                />
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
-    <EditText
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-       android:padding="5dp"
-        android:fontFamily="sans-serif-light"
-        android:hint="Detail(Optional)"
-
-        android:textColor="@color/primary_text"
+        android:layout_margin="6dp"
+        android:elevation="1dp"
         android:layout_weight="1"
-        android:id="@+id/other"/>
+        android:layout_marginBottom="60dp"
+        app:cardBackgroundColor="@color/icons"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardprice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                app:cardBackgroundColor="@color/fade"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="3dp"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="6dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Price $$"
+                        android:textColor="@color/primary_darkGrey"
+                        android:textSize="22dp" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                android:id="@+id/date"
+                style="@style/detail"
+                android:text="Date:  2 April,2016  " />
+
+            <TextView
+                android:id="@+id/address"
+                style="@style/detail"
+                android:text="Location: Ratopool to Naxal Niwas " />
+
+            <TextView
+                android:id="@+id/passenger"
+                style="@style/detail"
+                android:text="No.of passenger : Five Hundred Fifty" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/divider"></View>
+            <LinearLayout
+                android:layout_width="match_parent"
+
+                android:layout_weight="1"
+                android:layout_height="0dp">
+
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/other"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@color/icons"
+                android:fontFamily="sans-serif-light"
+                android:gravity="start"
+                android:hint="If you want to give further information..."
+                android:paddingTop="@dimen/activity_horizontal_margin"
+                android:textColor="@color/primary_text" />
+        </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:weightSum="3"
+        android:background="@color/colorPrimary"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/imageButton2"
+            android:layout_width="0dp"
+            android:src="@drawable/ic_attach_money"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_height="35dp" />
+        <ImageView
+            android:id="@+id/imageButton5"
+            android:layout_width="0dp"
+            android:src="@drawable/ic_attach_money"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_height="35dp" />
+        <ImageView
+            android:layout_width="0dp"
+            android:src="@drawable/ic_attach_money"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_height="35dp" />
+
+
+</LinearLayout>
+
 </LinearLayout>

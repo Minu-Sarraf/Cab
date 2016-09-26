@@ -13,44 +13,63 @@ import android.widget.ImageView;
 /**
  * Created by abc on 9/15/2016.
  */
-
 public class KenBurnsView extends ImageView {
 
-    /** Delay between a pair of frames at a 60 FPS frame rate. */
-    private static final long FRAME_DELAY = 1000 / 60;
+    /**
+     * Delay between a pair of frames at a 60 FPS frame rate.
+     */
+    private static final long FRAME_DELAY = 500 / 60;
 
-    /** Matrix used to perform all the necessary transition transformations. */
+    /**
+     * Matrix used to perform all the necessary transition transformations.
+     */
     private final Matrix mMatrix = new Matrix();
 
 
     private RandomTransitiongenerator mTransGen = new RandomTransitiongenerator();
 
-    /** A {@link TransitionListener} to be notified when
-     * a transition starts or ends. */
+    /**
+     * A {@link TransitionListener} to be notified when
+     * a transition starts or ends.
+     */
     private TransitionListener mTransitionListener;
 
-    /** The ongoing transition. */
+    /**
+     * The ongoing transition.
+     */
     private Transition mCurrentTrans;
 
-    /** The rect that holds the bounds of this view. */
+    /**
+     * The rect that holds the bounds of this view.
+     */
     private final RectF mViewportRect = new RectF();
-    /** The rect that holds the bounds of the current {@link Drawable}. */
+    /**
+     * The rect that holds the bounds of the current {@link Drawable}.
+     */
     private RectF mDrawableRect;
 
-    /** The progress of the animation, in milliseconds. */
+    /**
+     * The progress of the animation, in milliseconds.
+     */
     private long mElapsedTime;
 
-    /** The time, in milliseconds, of the last animation frame.
+    /**
+     * The time, in milliseconds, of the last animation frame.
      * This is useful to increment {@link #mElapsedTime} regardless
-     * of the amount of time the animation has been paused. */
+     * of the amount of time the animation has been paused.
+     */
     private long mLastFrameTime;
 
-    /** Controls whether the the animation is running. */
+    /**
+     * Controls whether the the animation is running.
+     */
     private boolean mPaused;
 
-    /** Indicates whether the parent constructor was already called.
+    /**
+     * Indicates whether the parent constructor was already called.
      * This is needed to distinguish if the image is being set before
-     * or after the super class constructor returns. */
+     * or after the super class constructor returns.
+     */
     private boolean mInitialized;
 
 
@@ -210,14 +229,15 @@ of the current rect into the entire view. */
         updateViewport(width, height);
         updateDrawableBounds();
 
-        if (hasBounds()) {
+      /*  if (hasBounds()) {
             startNewTransition();
-        }
+        }*/
     }
 
 
     /**
      * Checks whether this view has bounds.
+     *
      * @return
      */
     private boolean hasBounds() {
@@ -227,6 +247,7 @@ of the current rect into the entire view. */
 
     /**
      * Fires a start event on {@link #mTransitionListener};
+     *
      * @param transition the transition that just started.
      */
     private void fireTransitionStart(Transition transition) {
@@ -238,6 +259,7 @@ of the current rect into the entire view. */
 
     /**
      * Fires an end event on {@link #mTransitionListener};
+     *
      * @param transition the transition that just ended.
      */
     private void fireTransitionEnd(Transition transition) {
@@ -245,7 +267,6 @@ of the current rect into the entire view. */
             mTransitionListener.onTransitionEnd(transition);
         }
     }
-
 
 
     public void setTransitionGenerator(RandomTransitiongenerator transgen) {
@@ -258,7 +279,8 @@ of the current rect into the entire view. */
 
     /**
      * Updates the viewport rect. This must be called every time the size of this view changes.
-     * @param width the new viewport with.
+     *
+     * @param width  the new viewport with.
      * @param height the new viewport height.
      */
     private void updateViewport(float width, float height) {
@@ -291,9 +313,9 @@ of the current rect into the entire view. */
 was fired during the super constructor execution.
 The view won't be ready at this time. Also,
 don't start it if this view size is still unknown. */
-        if (mInitialized && hasBounds()) {
+       /* if (mInitialized && hasBounds()) {
             startNewTransition();
-        }
+        }*/
     }
 
 
@@ -327,12 +349,14 @@ don't start it if this view size is still unknown. */
     public interface TransitionListener {
         /**
          * Notifies the start of a transition.
+         *
          * @param transition the transition that just started.
          */
         public void onTransitionStart(Transition transition);
 
         /**
          * Notifies the end of a transition.
+         *
          * @param transition the transition that just ended.
          */
         public void onTransitionEnd(Transition transition);

@@ -14,7 +14,7 @@ import java.util.Random;
 public class RandomTransitiongenerator implements TransitionGenerator {
 
         /** Default value for the transition duration in milliseconds. */
-        public static final int DEFAULT_TRANSITION_DURATION = 10000;
+        public static final int DEFAULT_TRANSITION_DURATION = 3000;
 
         /** Minimum rect dimension factor, according to the maximum one. */
         private static final float MIN_RECT_FACTOR = 0.75f;

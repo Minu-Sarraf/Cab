@@ -16,7 +16,7 @@ import com.cab.alington.cab.R;
 import com.cab.alington.cab.splashscreen.LoginActivity;
 
 public class Splashscreen extends AppCompatActivity {
-    private static int SPLASH_TIME_OUT = 10000;
+    private static int SPLASH_TIME_OUT = 5000;
     private KenBurnsView mKenBurns;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,9 @@ public class Splashscreen extends AppCompatActivity {
             public void run() {
                 Intent i = new Intent(Splashscreen.this, LoginActivity.class);
                 startActivity(i);
-                setupWindowAnimations();
+              //  setupWindowAnimations();
+                overridePendingTransition(R.anim.right_in,
+                        R.anim.left_out);
                // overridePendingTransition(R.anim.slide_out, R.anim.slide_in);
                 finish();
             }
@@ -51,10 +53,10 @@ public class Splashscreen extends AppCompatActivity {
         scaleXAnimation.setDuration(600);
         ObjectAnimator scaleYAnimation = ObjectAnimator.ofFloat(findViewById(R.id.welcome_text), "scaleY", 5.0F, 1.0F);
         scaleYAnimation.setInterpolator(new AccelerateDecelerateInterpolator());
-        scaleYAnimation.setDuration(600);
+        scaleYAnimation.setDuration(500);
         ObjectAnimator alphaAnimation = ObjectAnimator.ofFloat(findViewById(R.id.welcome_text), "alpha", 0.0F, 1.0F);
         alphaAnimation.setInterpolator(new AccelerateDecelerateInterpolator());
-        alphaAnimation.setDuration(600);
+        alphaAnimation.setDuration(500);
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.play(scaleXAnimation).with(scaleYAnimation).with(alphaAnimation);
         animatorSet.setStartDelay(200);

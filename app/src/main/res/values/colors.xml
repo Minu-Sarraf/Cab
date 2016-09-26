@@ -35,7 +35,7 @@
     <color name="global_color_green_accent">#ffc107</color>
     <color name="global_color_green_control_activated">#ffc107</color>
     <color name="darkblue">#3F51B5</color>
-
+<color name="whatsapp">#2cbfb1</color>
     <color name="blue">#303F9F</color>
     <color name="primary_darker">#CC1D1D</color>
 </resources>

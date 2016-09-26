@@ -30,6 +30,8 @@ import android.widget.ImageView;
 
 import com.cab.alington.cab.R;
 import com.cab.alington.cab.splashscreen.datetime.CustomDateTimePicker;
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -67,7 +69,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mob = (EditText) findViewById(R.id.phone);
         datetime = (EditText) findViewById(R.id.timeform);
         tiemail = (TextInputLayout) findViewById(R.id.mailwrapper);
-
+        toloc = (EditText) findViewById(R.id.to);
+        fromloc = (EditText) findViewById(R.id.form);
         datetime.setOnTouchListener(this);
         tiphone = (TextInputLayout) findViewById(R.id.phwrapper);
         tifrom = (TextInputLayout) findViewById(R.id.fromwrapper);
@@ -78,6 +81,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         tipass = (TextInputLayout) findViewById(R.id.pasenger);
         next = (FrameLayout) findViewById(R.id.next);
         next.setOnClickListener(this);
+        pass = (EditText) findViewById(R.id.pass);
       /*  fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -253,8 +257,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (v.getId()) {
 
             case R.id.next:
-                getdetail();
-
+               // getdetail();
+             Intent i = new Intent(this, Register.class);
+               startActivity(i);
                 break;
             case R.id.contact_picker:
                 boolean result = Permission.Utility.checkPermission(this, Manifest.permission.READ_CONTACTS, 123, "READ CONTACT permission is necessary");
@@ -265,36 +270,50 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.map:
                 Intent refermap = new Intent(this, MapsActivity.class);
                 startActivityForResult(refermap, 1);
-                overridePendingTransition(R.anim.abc_slide_in_bottom, R.anim.abc_slide_out_top);
+                this.overridePendingTransition(R.anim.right_in,
+                        R.anim.left_out);
                 break;
         }
     }
 
-    private void validate(String gotname, String gotemail, Editable gotphone, String gotdate, String gotfrom, String gotto, String gotpass) {
+    private void validate(String gotname, String gotemail, String gotphone, String gotdate, String gotfrom, String gotto, String gotpass) {
 
         if (!gotname.equalsIgnoreCase("") && Validation.isValidEmail(gotemail) && Validation.isValidPhoneNumber(gotphone) && !gotdate.equalsIgnoreCase("") && !gotfrom.equalsIgnoreCase("") && !gotto.equalsIgnoreCase("") && gotpass != "") {
             Intent i = new Intent(this, Register.class);
             startActivity(i);
 
+            Log.e("validate", "start");
         } else if (gotname.equalsIgnoreCase("")) {
             tiname.setError("Please enter name");
+            animate(tiname,Techniques.Shake);
         } else if (gotdate.equalsIgnoreCase("")) {
             tidate.setError("Please enter valid date and time");
+            animate(tidate,Techniques.Shake);
         } else if (gotpass.equalsIgnoreCase("")) {
             tipass.setError("Please enter passenger number");
+            animate(tipass,Techniques.Shake);
         } else if (gotto.equalsIgnoreCase("")) {
             tito.setError("Please enter pickup location");
+            animate(tito,Techniques.Shake);
         } else if (gotfrom.equalsIgnoreCase("")) {
             tifrom.setError("Please enter dropping location");
+            animate(tifrom,Techniques.Shake);
         } else if (!Validation.isValidEmail(gotemail)) {
             tiemail.setError("Please enter valid email addresss");
-
+            animate(tiemail,Techniques.Shake);
         } else if (!Validation.isValidPhoneNumber(gotphone)) {
             tiphone.setError("Please enter valid phone number");
+            animate(tiphone,Techniques.Shake);
+
         }
 
-    }
 
+    }
+public void animate(TextInputLayout id, Techniques anim){
+    YoYo.with(anim)
+            .duration(700)
+            .playOn(id);
+}
     @Override
     protected void onResume() {
         super.onResume();
@@ -317,13 +336,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void getdetail() {
-        String gotname = String.valueOf(name.getText());
-        String gotemail = String.valueOf(email.getText());
-        Editable gotphone = mob.getText();
-        String gotdate = String.valueOf(datetime.getText());
-        String gotfrom = String.valueOf(fromloc.getText());
-        String gotto = String.valueOf(toloc.getText());
-        String gotpass = String.valueOf(pass.getText());
+        String gotname = (name.getText().toString());
+        String gotemail = (email.getText().toString());
+        String gotphone = mob.getText().toString();
+        String gotdate = (datetime.getText().toString());
+        String gotfrom = (fromloc.getText().toString());
+        String gotto = (toloc.getText().toString());
+        String gotpass = (pass.getText().toString());
         validate(gotname, gotemail, gotphone, gotdate, gotfrom, gotto, gotpass);
     }
 

@@ -24,23 +24,17 @@
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity android:name=".splashscreen.splash.Splashscreen">
 
-            <!--
-            <intent-filter>
+
+           <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            -->
         </activity>
         <activity
             android:name=".splashscreen.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".splashscreen.MapsActivity">
             <meta-data
@@ -57,6 +51,7 @@
             android:name=".splashscreen.Login"
             android:windowSoftInputMode="adjustResize|adjustPan" />
         <activity android:name=".splashscreen.Register"
+            android:label="Payment"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

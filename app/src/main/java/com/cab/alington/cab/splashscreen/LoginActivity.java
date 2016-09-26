@@ -74,7 +74,8 @@ public class LoginActivity extends AppCompatActivity implements BaseSliderView.O
         }
         Intent i=new Intent(this,Login.class);
         startActivity(i);
-
+        this.overridePendingTransition(R.anim.right_in,
+                R.anim.left_out);
     }
 
     @Override

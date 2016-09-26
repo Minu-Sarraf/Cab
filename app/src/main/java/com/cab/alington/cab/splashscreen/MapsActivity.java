@@ -61,8 +61,8 @@ public class MapsActivity extends FragmentActivity implements GoogleMap.OnMyLoca
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.google_map);
         mapFragment.getMapAsync(this);
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabsave);
-        fab.setOnClickListener(this);
+       // FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabsave);
+       // fab.setOnClickListener(this);
         //  mMap.setOnMapClickListener(this);
         et = (EditText) findViewById(R.id.searchbar);
 
@@ -227,8 +227,9 @@ public class MapsActivity extends FragmentActivity implements GoogleMap.OnMyLoca
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case (R.id.fabsave):
+         /*   case (R.id.fabsave):
                 save_add();
+                break;*/
             case (R.id.img_back):
                 save_add();
 
