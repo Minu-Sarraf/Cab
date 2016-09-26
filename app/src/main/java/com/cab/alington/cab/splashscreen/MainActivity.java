@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -29,6 +30,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.cab.alington.cab.R;
+import com.cab.alington.cab.splashscreen.ActivityBasedGPS.BackgroundLocationService;
 import com.cab.alington.cab.splashscreen.datetime.CustomDateTimePicker;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private ImageView map1;
     private CustomDateTimePicker custom;
     FrameLayout next;
+    SharedPreferences sharedpreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +103,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         date();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        startlocation();
+    }
+
+    private void startlocation() {
+        sharedpreferences = this.getSharedPreferences("login", MODE_PRIVATE);
+        if (sharedpreferences.getBoolean("driver", false)) {
+            Intent i = new Intent(this, BackgroundLocationService.class);
+            startService(i);
+        }else{
+            Intent i = new Intent(this, BackgroundLocationService.class);
+            stopService(i);
+        }
     }
 
     @Override
@@ -257,9 +272,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (v.getId()) {
 
             case R.id.next:
-               // getdetail();
-             Intent i = new Intent(this, Register.class);
-               startActivity(i);
+                // getdetail();
+                Intent i = new Intent(this, Register.class);
+                startActivity(i);
                 break;
             case R.id.contact_picker:
                 boolean result = Permission.Utility.checkPermission(this, Manifest.permission.READ_CONTACTS, 123, "READ CONTACT permission is necessary");
@@ -285,35 +300,37 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Log.e("validate", "start");
         } else if (gotname.equalsIgnoreCase("")) {
             tiname.setError("Please enter name");
-            animate(tiname,Techniques.Shake);
+            animate(tiname, Techniques.Shake);
         } else if (gotdate.equalsIgnoreCase("")) {
             tidate.setError("Please enter valid date and time");
-            animate(tidate,Techniques.Shake);
+            animate(tidate, Techniques.Shake);
         } else if (gotpass.equalsIgnoreCase("")) {
             tipass.setError("Please enter passenger number");
-            animate(tipass,Techniques.Shake);
+            animate(tipass, Techniques.Shake);
         } else if (gotto.equalsIgnoreCase("")) {
             tito.setError("Please enter pickup location");
-            animate(tito,Techniques.Shake);
+            animate(tito, Techniques.Shake);
         } else if (gotfrom.equalsIgnoreCase("")) {
             tifrom.setError("Please enter dropping location");
-            animate(tifrom,Techniques.Shake);
+            animate(tifrom, Techniques.Shake);
         } else if (!Validation.isValidEmail(gotemail)) {
             tiemail.setError("Please enter valid email addresss");
-            animate(tiemail,Techniques.Shake);
+            animate(tiemail, Techniques.Shake);
         } else if (!Validation.isValidPhoneNumber(gotphone)) {
             tiphone.setError("Please enter valid phone number");
-            animate(tiphone,Techniques.Shake);
+            animate(tiphone, Techniques.Shake);
 
         }
 
 
     }
-public void animate(TextInputLayout id, Techniques anim){
-    YoYo.with(anim)
-            .duration(700)
-            .playOn(id);
-}
+
+    public void animate(TextInputLayout id, Techniques anim) {
+        YoYo.with(anim)
+                .duration(700)
+                .playOn(id);
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
