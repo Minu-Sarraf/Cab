@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private CustomDateTimePicker custom;
     FrameLayout next;
     SharedPreferences sharedpreferences;
+
     private TextView notificounter;
 
     @Override
