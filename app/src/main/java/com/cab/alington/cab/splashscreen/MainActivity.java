@@ -28,6 +28,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.cab.alington.cab.R;
 import com.cab.alington.cab.splashscreen.ActivityBasedGPS.BackgroundLocationService;
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private CustomDateTimePicker custom;
     FrameLayout next;
     SharedPreferences sharedpreferences;
+    private TextView notificounter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,9 +133,39 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
+        final View menu_hotlist = menu.findItem(R.id.notification).getActionView();
+        notificounter = (TextView) menu_hotlist.findViewById(R.id.notifycount);
+        notificounter.setOnClickListener(this);
 
+        menu_hotlist.setOnClickListener(this);
+        updatenotifyCount(0);
+
+        return super.onCreateOptionsMenu(menu);
+
+    }
+    public void updatenotifyCount(final int count) {
+        if (notificounter == null) return;
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+
+              /*  prefs = getSharedPreferences("fcmdata", MODE_PRIVATE);
+                hot_number = prefs.getInt("support", 0) + prefs.getInt("install", 0) + prefs.getInt("task", 0);
+                Log.e("main", String.valueOf(hot_number) + "abc");
+                if (hot_number == 0 && count == 0)
+                    notificounter.setVisibility(View.INVISIBLE);
+                else {
+                    notificounter.setVisibility(View.VISIBLE);
+                    if (count != 0) {
+                        notificounter.setText(count);
+                    } else {
+                        notificounter.setText(Integer.toString(hot_number));
+                    }
+
+                }*/
+            }
+        });
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -141,9 +173,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
         return super.onOptionsItemSelected(item);
     }
 

@@ -23,7 +23,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     AppCompatTextView taxicab;
     Button btlogin;
     int flag = 0;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -11,6 +11,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -23,8 +24,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity android:name=".splashscreen.splash.Splashscreen">
-
-
            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -53,6 +52,8 @@
         <activity android:name=".splashscreen.Register"
             android:label="Payment"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <service android:name=".splashscreen.ActivityBasedGPS.BackgroundLocationService" />
+        <service android:name=".splashscreen.ActivityBasedGPS.LocationUpdates" />
     </application>
 
 </manifest>
